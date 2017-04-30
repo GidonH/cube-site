@@ -1,0 +1,44 @@
+
+<body>
+
+<section class="container">
+    <div id="cube" class="cube">
+        <section class="front side">
+            <iframe id="facebook" src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FStandWithUs%2Fvideos%2F10152271224632689%2F&show_text=1&width=560" width="100%" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+        </section>
+        <section class="back side">
+            <iframe width="100%" height="400" src="http://webglplayground.net/share/lsystem-tree-fractal?gallery=1&fullscreen=0&width=800&height=600&header=0" frameborder="0"></iframe>
+        </section>
+        <section class="right side">
+            <div class="cube-image"></div>
+        </section>
+        <section class="left side">
+            <div class="cube-image"></div>
+        </section>
+        <section class="top side">
+            <div class="cube-image"></div>
+        </section>
+        <section class="bottom side">
+            <div class="cube-image"></div>
+        </section>
+    </div>
+</section>
+<script>
+    $(function () {
+        var $body = $('body');
+        $body.on('mousedown', function (ev) {
+            $('#facebook').css('pointer-events', 'none');
+
+            $body.on('mousemove', function (e) {
+                $('#cube').css('transform', `rotateX(-${e.screenY}deg)   rotateY(${e.screenX}deg)`);
+            });
+            $body.on('mouseup', function () {
+                $body.off('mousemove');
+                $('#facebook').css('pointer-events', 'initial');
+            })
+        });
+    })
+</script>
+
+
+</body>
